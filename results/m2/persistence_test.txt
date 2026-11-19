@@ -1,0 +1,36 @@
+[1m==> BEFORE  (2026-11-19 21:35:32)[0m
+NAME      READY   STATUS    RESTARTS   AGE     IP            NODE   NOMINATED NODE   READINESS GATES
+mongo-0   1/1     Running   0          7m12s   10.244.0.9    emi    <none>           <none>
+mongo-1   1/1     Running   0          6m15s   10.244.0.13   emi    <none>           <none>
+mongo-2   1/1     Running   0          6m4s    10.244.0.14   emi    <none>           <none>
+NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-mongo-0   Bound    pvc-9db374d0-8466-44a2-a341-a3beb37f1519   1Gi        RWO            standard       <unset>                 7m12s
+data-mongo-1   Bound    pvc-d1d0bc19-f12b-4021-a58c-ff653e8da842   1Gi        RWO            standard       <unset>                 6m15s
+data-mongo-2   Bound    pvc-f6c19adf-4595-465b-99e4-ab57e75a3f77   1Gi        RWO            standard       <unset>                 6m4s
+pod=mongo-1  uid=a8de51b9-209e-4446-8550-7e78adeac19d  created=2026-11-19T16:29:18Z  pvc=data-mongo-1
+calculations: 4
+  2026-11-19T16:33:45.242Z  P=500000 rate=12 n=24 emi=23536.74  emi-web-59c5cc7fc-jg2r5
+  2026-11-19T16:33:27.835Z  P=39000 rate=5 n=23 emi=1781.73  emi-web-59c5cc7fc-jg2r5
+  2026-11-19T16:33:14.141Z  P=27000 rate=7 n=19 emi=1505.39  emi-web-59c5cc7fc-jg2r5
+[1m==> kubectl delete pod mongo-1 -n emi   (2026-11-19 21:35:35)[0m
+pod "mongo-1" deleted from emi namespace
+[1m==> AFTER  (2026-11-19 21:36:14)[0m
+NAME      READY   STATUS    RESTARTS   AGE     IP            NODE   NOMINATED NODE   READINESS GATES
+mongo-0   1/1     Running   0          7m53s   10.244.0.9    emi    <none>           <none>
+mongo-1   1/1     Running   0          22s     10.244.0.15   emi    <none>           <none>
+mongo-2   1/1     Running   0          6m45s   10.244.0.14   emi    <none>           <none>
+NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-mongo-0   Bound    pvc-9db374d0-8466-44a2-a341-a3beb37f1519   1Gi        RWO            standard       <unset>                 7m54s
+data-mongo-1   Bound    pvc-d1d0bc19-f12b-4021-a58c-ff653e8da842   1Gi        RWO            standard       <unset>                 6m57s
+data-mongo-2   Bound    pvc-f6c19adf-4595-465b-99e4-ab57e75a3f77   1Gi        RWO            standard       <unset>                 6m46s
+pod=mongo-1  uid=a882214b-7248-4b82-a80c-cde989e2907c  created=2026-11-19T16:35:52Z  pvc=data-mongo-1
+calculations: 4
+  2026-11-19T16:33:45.242Z  P=500000 rate=12 n=24 emi=23536.74  emi-web-59c5cc7fc-jg2r5
+  2026-11-19T16:33:27.835Z  P=39000 rate=5 n=23 emi=1781.73  emi-web-59c5cc7fc-jg2r5
+  2026-11-19T16:33:14.141Z  P=27000 rate=7 n=19 emi=1505.39  emi-web-59c5cc7fc-jg2r5
+[1m==> Documents on mongo-1 itself (its own copy of the data, read from the PVC)[0m
+mongo-1 calculations: 4
+set: rs0   date: 2026-11-19T16:36:20.868Z
+  mongo-0.mongo:27017   PRIMARY    health=1
+  mongo-1.mongo:27017   SECONDARY  health=1
+  mongo-2.mongo:27017   SECONDARY  health=1

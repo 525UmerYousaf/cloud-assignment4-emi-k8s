@@ -1,0 +1,4 @@
+set: rs0   date: 2026-11-19T16:32:05.096Z
+  mongo-0.mongo:27017   PRIMARY    health=1
+  mongo-1.mongo:27017   SECONDARY  health=1
+  mongo-2.mongo:27017   SECONDARY  health=1
