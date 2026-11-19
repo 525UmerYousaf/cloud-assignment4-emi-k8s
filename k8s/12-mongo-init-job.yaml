@@ -1,0 +1,58 @@
+# One-off Job: waits for all three members, runs rs.initiate() on mongo-0
+# (skipped if the set already exists, so re-applying is safe), then waits
+# until there is exactly one PRIMARY and two SECONDARY members and prints them.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-init
+  namespace: emi
+spec:
+  backoffLimit: 4
+  template:
+    metadata:
+      labels:
+        app: mongo-init
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: mongo-init
+          image: mongo:7.0
+          imagePullPolicy: IfNotPresent
+          command: ["bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+              for h in mongo-0.mongo mongo-1.mongo mongo-2.mongo; do
+                until mongosh --quiet --host "$h" --eval 'db.adminCommand({ping: 1}).ok' >/dev/null 2>&1; do
+                  echo "waiting for $h ..."; sleep 3
+                done
+                echo "$h is reachable"
+              done
+
+              mongosh --quiet --host mongo-0.mongo --eval '
+                try {
+                  rs.status();
+                  print("replica set rs0 is already initiated");
+                } catch (e) {
+                  const r = rs.initiate({
+                    _id: "rs0",
+                    members: [
+                      { _id: 0, host: "mongo-0.mongo:27017" },
+                      { _id: 1, host: "mongo-1.mongo:27017" },
+                      { _id: 2, host: "mongo-2.mongo:27017" }
+                    ]
+                  });
+                  print("rs.initiate() -> " + JSON.stringify(r));
+                }'
+
+              echo "waiting for 1 PRIMARY and 2 SECONDARY ..."
+              until mongosh --quiet --host mongo-0.mongo --eval '
+                const s = rs.status().members.map(m => m.stateStr);
+                print(s.filter(x => x === "PRIMARY").length === 1 && s.filter(x => x === "SECONDARY").length === 2)' | grep -q true; do
+                sleep 2
+              done
+
+              echo "rs.status() members:"
+              mongosh --quiet --host mongo-0.mongo --eval '
+                rs.status().members.forEach(m => print("  " + m.name + "  " + m.stateStr))'
+              echo "replica set rs0 is ready"

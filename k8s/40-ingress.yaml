@@ -1,0 +1,21 @@
+# Only entry point from the host: http://emi.local/ -> Service emi-web:80.
+# Needs the ingress addon (minikube addons enable ingress) and emi.local in
+# the hosts file (127.0.0.1 with "minikube tunnel" on macOS/Windows).
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: emi-web
+  namespace: emi
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: emi.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: emi-web
+                port:
+                  number: 80

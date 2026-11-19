@@ -1,0 +1,29 @@
+# Milestone 04 autoscaler. Kept out of k8s/ itself so that
+# "kubectl apply -f k8s/" gives the fixed 3-replica Deployment that
+# Milestones 02-03 and the fixed-replica experiments need.
+# Apply with:  kubectl apply -f k8s/autoscale/hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: emi-web
+  namespace: emi
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: emi-web
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+  behavior:
+    # Kubernetes waits 300 s before scaling down by default, which is longer
+    # than the 3-minute cool-down phase of the test. 60 s lets the scale-in
+    # be observed within the 10-minute experiment.
+    scaleDown:
+      stabilizationWindowSeconds: 60

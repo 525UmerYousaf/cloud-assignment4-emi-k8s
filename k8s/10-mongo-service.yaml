@@ -1,0 +1,21 @@
+# Headless Service: no virtual IP, only per-pod DNS records
+#   mongo-0.mongo, mongo-1.mongo, mongo-2.mongo  (inside namespace emi)
+# which is what the replica set members use to find each other.
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: emi
+  labels:
+    app: mongo
+spec:
+  clusterIP: None
+  # Publish DNS records even before a pod is Ready, so the members can
+  # reach each other while the replica set is being formed.
+  publishNotReadyAddresses: true
+  selector:
+    app: mongo
+  ports:
+    - name: mongo
+      port: 27017
+      targetPort: 27017

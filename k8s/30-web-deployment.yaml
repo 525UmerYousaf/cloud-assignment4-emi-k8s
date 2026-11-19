@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emi-web
+  namespace: emi
+  labels:
+    app: emi-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: emi-web
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # add one new pod at a time
+      maxUnavailable: 0  # never go below the desired number of Ready pods
+  template:
+    metadata:
+      labels:
+        app: emi-web
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: emi-web
+          image: emi-web:1.0
+          imagePullPolicy: IfNotPresent   # use the image loaded into Minikube
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: emi-config
+                  key: MONGO_URL
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          resources:
+            requests:
+              cpu: 100m        # the HPA measures utilisation against this
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          # Ready = can reach MongoDB. Not Ready -> removed from the Service.
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+          # Alive = answering /health. Generous threshold (60 s) so a short
+          # MongoDB election does not get every web pod restarted.
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 6
+          # On termination, keep serving for 10 s while the endpoint is removed
+          # from the Service and the Ingress, then the app shuts down gracefully.
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "10"]
