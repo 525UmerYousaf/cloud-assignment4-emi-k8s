@@ -1,0 +1,10 @@
+---- summary ----
+requests: 111   ok (200): 111   failed: 0
+by version:
+ 111   version 1.0
+by pod:
+  26   emi-web-59c5cc7fc-jg2r5
+  27   emi-web-59c5cc7fc-khjmw
+  17   emi-web-59c5cc7fc-mcfvh
+  16   emi-web-59c5cc7fc-p9wth
+  25   emi-web-59c5cc7fc-wb5mr

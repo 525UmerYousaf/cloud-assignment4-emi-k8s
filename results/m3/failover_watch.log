@@ -1,0 +1,16 @@
+21:51:36  NAME      READY   STATUS    RESTARTS   AGE   IP            NODE   NOMINATED NODE   READINESS GATES
+21:51:36  mongo-0   1/1     Running   0          23m   10.244.0.9    emi    <none>           <none>
+21:51:36  mongo-1   1/1     Running   0          15m   10.244.0.15   emi    <none>           <none>
+21:51:36  mongo-2   1/1     Running   0          22m   10.244.0.14   emi    <none>           <none>
+21:51:47  mongo-0   1/1     Terminating   0          23m   10.244.0.9    emi    <none>           <none>
+21:51:47  mongo-0   1/1     Terminating   0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Pending       0          0s    <none>        <none>   <none>           <none>
+21:52:03  mongo-0   0/1     Pending       0          0s    <none>        emi      <none>           <none>
+21:52:03  mongo-0   0/1     ContainerCreating   0          0s    <none>        emi      <none>           <none>
+21:52:04  mongo-0   0/1     ContainerCreating   0          0s    <none>        emi      <none>           <none>
+21:52:04  mongo-0   0/1     Running             0          1s    10.244.0.19   emi      <none>           <none>
+21:52:14  mongo-0   1/1     Running             0          11s   10.244.0.19   emi      <none>           <none>
+21:52:14  mongo-0   1/1     Running             0          11s   10.244.0.19   emi      <none>           <none>

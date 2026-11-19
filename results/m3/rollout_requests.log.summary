@@ -1,0 +1,15 @@
+---- summary ----
+requests: 1020   ok (200): 1020   failed: 0
+by version:
+ 124   version 1.0
+ 896   version 1.1
+by pod:
+  23   emi-web-59c5cc7fc-4xkj8
+  33   emi-web-59c5cc7fc-khjmw
+  20   emi-web-59c5cc7fc-lsw6g
+  17   emi-web-59c5cc7fc-rgq4f
+  11   emi-web-59c5cc7fc-w4b8l
+  20   emi-web-59c5cc7fc-wb5mr
+ 288   emi-web-7c7d974498-862kv
+ 307   emi-web-7c7d974498-fjrqh
+ 301   emi-web-7c7d974498-tkngh

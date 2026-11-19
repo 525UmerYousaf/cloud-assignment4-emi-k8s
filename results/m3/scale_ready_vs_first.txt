@@ -1,0 +1,3 @@
+POD                              READY_AT   FIRST_REQ  VERDICT
+emi-web-59c5cc7fc-mcfvh          21:48:24   21:48:26   first request after Ready
+emi-web-59c5cc7fc-p9wth          21:48:24   21:48:26   first request after Ready

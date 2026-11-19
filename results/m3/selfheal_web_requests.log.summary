@@ -1,0 +1,9 @@
+---- summary ----
+requests: 150   ok (200): 150   failed: 0
+by version:
+ 150   version 1.0
+by pod:
+  11   emi-web-59c5cc7fc-jg2r5
+  52   emi-web-59c5cc7fc-khjmw
+  32   emi-web-59c5cc7fc-rgq4f
+  55   emi-web-59c5cc7fc-wb5mr

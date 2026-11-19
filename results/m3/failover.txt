@@ -1,0 +1,49 @@
+[1m==> Before (2026-11-19 21:51:36)[0m
+set: rs0   date: 2026-11-19T16:51:38.651Z
+  mongo-0.mongo:27017   PRIMARY    health=1
+  mongo-1.mongo:27017   SECONDARY  health=1
+  mongo-2.mongo:27017   SECONDARY  health=1
+calculations: 329
+  2026-11-19T16:51:01.651Z  P=437700 rate=12.58 n=148 emi=5835.19  emi-web-59c5cc7fc-wb5mr
+  2026-11-19T16:51:01.383Z  P=36200 rate=17.66 n=307 emi=538.82  emi-web-59c5cc7fc-wb5mr
+  2026-11-19T16:51:01.119Z  P=31800 rate=15 n=128 emi=499.31  emi-web-59c5cc7fc-wb5mr
+current PRIMARY pod: mongo-0
+[1m==> kubectl delete pod mongo-0 -n emi   (2026-11-19 21:51:47)[0m
+pod "mongo-0" deleted from emi namespace
+new PRIMARY: mongo-1   elected about 5 s after the delete
+[1m==> After (2026-11-19 21:52:52)[0m
+set: rs0   date: 2026-11-19T16:52:55.015Z
+  mongo-0.mongo:27017   SECONDARY  health=1
+  mongo-1.mongo:27017   PRIMARY    health=1
+  mongo-2.mongo:27017   SECONDARY  health=1
+./scripts/failover.sh: line 47: 52610 Terminated: 15          watch_pods app=mongo "$OUT/failover_watch.log"
+calculations: 434
+  2026-11-19T16:52:42.919Z  P=141900 rate=16.52 n=89 emi=2775.45  emi-web-59c5cc7fc-wb5mr
+  2026-11-19T16:52:42.355Z  P=912700 rate=9.97 n=174 emi=9938.48  emi-web-59c5cc7fc-rgq4f
+  2026-11-19T16:52:41.782Z  P=90500 rate=15.67 n=278 emi=1214.75  emi-web-59c5cc7fc-wb5mr
+[1m==> kubectl get pods -n emi -w (timestamped)[0m
+21:51:36  NAME      READY   STATUS    RESTARTS   AGE   IP            NODE   NOMINATED NODE   READINESS GATES
+21:51:36  mongo-0   1/1     Running   0          23m   10.244.0.9    emi    <none>           <none>
+21:51:36  mongo-1   1/1     Running   0          15m   10.244.0.15   emi    <none>           <none>
+21:51:36  mongo-2   1/1     Running   0          22m   10.244.0.14   emi    <none>           <none>
+21:51:47  mongo-0   1/1     Terminating   0          23m   10.244.0.9    emi    <none>           <none>
+21:51:47  mongo-0   1/1     Terminating   0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Completed     0          23m   10.244.0.9    emi    <none>           <none>
+21:52:03  mongo-0   0/1     Pending       0          0s    <none>        <none>   <none>           <none>
+21:52:03  mongo-0   0/1     Pending       0          0s    <none>        emi      <none>           <none>
+21:52:03  mongo-0   0/1     ContainerCreating   0          0s    <none>        emi      <none>           <none>
+21:52:04  mongo-0   0/1     ContainerCreating   0          0s    <none>        emi      <none>           <none>
+21:52:04  mongo-0   0/1     Running             0          1s    10.244.0.19   emi      <none>           <none>
+21:52:14  mongo-0   1/1     Running             0          11s   10.244.0.19   emi      <none>           <none>
+21:52:14  mongo-0   1/1     Running             0          11s   10.244.0.19   emi      <none>           <none>
+[1m==> Requests through the Ingress during the failover[0m
+---- summary ----
+requests: 105   ok (200): 105   failed: 0
+by version:
+ 105   version 1.0
+by pod:
+  35   emi-web-59c5cc7fc-khjmw
+  36   emi-web-59c5cc7fc-rgq4f
+  34   emi-web-59c5cc7fc-wb5mr

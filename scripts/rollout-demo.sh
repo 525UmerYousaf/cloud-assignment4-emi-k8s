@@ -19,6 +19,8 @@ sleep 10
 say "kubectl rollout history deployment/emi-web -n emi"
 kubectl -n "$NS" rollout history deployment/emi-web
 
+printf '\n    >>> Open http://emi.local now: the title and footer show v1.1. Take the screenshot, then press Enter to roll back. ' > /dev/tty
+read -r _ < /dev/tty
 say "kubectl rollout undo deployment/emi-web -n emi   ($(now))"
 kubectl -n "$NS" rollout undo deployment/emi-web
 kubectl -n "$NS" rollout status deployment/emi-web --timeout=300s

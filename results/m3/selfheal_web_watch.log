@@ -1,0 +1,89 @@
+21:50:21  NAME                      READY   STATUS    RESTARTS      AGE   IP            NODE   NOMINATED NODE   READINESS GATES
+21:50:21  emi-web-59c5cc7fc-jg2r5   1/1     Running   1 (20m ago)   22m   10.244.0.10   emi    <none>           <none>
+21:50:21  emi-web-59c5cc7fc-khjmw   1/1     Running   1 (20m ago)   22m   10.244.0.12   emi    <none>           <none>
+21:50:21  emi-web-59c5cc7fc-wb5mr   1/1     Running   1 (20m ago)   22m   10.244.0.11   emi    <none>           <none>
+21:50:29  emi-web-59c5cc7fc-jg2r5   1/1     Terminating   1 (20m ago)   22m   10.244.0.10   emi    <none>           <none>
+21:50:29  emi-web-59c5cc7fc-rgq4f   0/1     Pending       0             0s    <none>        <none>   <none>           <none>
+21:50:29  emi-web-59c5cc7fc-rgq4f   0/1     Pending       0             0s    <none>        emi      <none>           <none>
+21:50:29  emi-web-59c5cc7fc-jg2r5   1/1     Terminating   1 (20m ago)   22m   10.244.0.10   emi      <none>           <none>
+21:50:29  emi-web-59c5cc7fc-rgq4f   0/1     ContainerCreating   0             1s    <none>        emi      <none>           <none>
+21:50:29  emi-web-59c5cc7fc-rgq4f   0/1     ContainerCreating   0             1s    <none>        emi      <none>           <none>
+21:50:30  emi-web-59c5cc7fc-rgq4f   0/1     Running             0             1s    10.244.0.18   emi      <none>           <none>
+21:50:35  emi-web-59c5cc7fc-rgq4f   1/1     Running             0             6s    10.244.0.18   emi      <none>           <none>
+21:50:35  emi-web-59c5cc7fc-rgq4f   1/1     Running             0             6s    10.244.0.18   emi      <none>           <none>
+21:50:39  emi-web-59c5cc7fc-jg2r5   0/1     Completed           1 (20m ago)   22m   10.244.0.10   emi      <none>           <none>
+21:50:40  emi-web-59c5cc7fc-jg2r5   0/1     Completed           1 (20m ago)   22m   10.244.0.10   emi      <none>           <none>
+21:50:40  emi-web-59c5cc7fc-jg2r5   0/1     Completed           1 (20m ago)   22m   10.244.0.10   emi      <none>           <none>
+21:56:53  emi-web-7c7d974498-tkngh   0/1     Pending             0             0s    <none>        <none>   <none>           <none>
+21:56:53  emi-web-7c7d974498-tkngh   0/1     Pending             0             0s    <none>        emi      <none>           <none>
+21:56:53  emi-web-7c7d974498-tkngh   0/1     ContainerCreating   0             0s    <none>        emi      <none>           <none>
+21:56:54  emi-web-7c7d974498-tkngh   0/1     ContainerCreating   0             0s    <none>        emi      <none>           <none>
+21:56:54  emi-web-7c7d974498-tkngh   0/1     Running             0             0s    10.244.0.20   emi      <none>           <none>
+21:56:59  emi-web-7c7d974498-tkngh   1/1     Running             0             6s    10.244.0.20   emi      <none>           <none>
+21:56:59  emi-web-7c7d974498-tkngh   1/1     Running             0             6s    10.244.0.20   emi      <none>           <none>
+21:56:59  emi-web-59c5cc7fc-rgq4f    1/1     Terminating         0             6m31s   10.244.0.18   emi      <none>           <none>
+21:56:59  emi-web-7c7d974498-fjrqh   0/1     Pending             0             0s      <none>        <none>   <none>           <none>
+21:56:59  emi-web-59c5cc7fc-rgq4f    1/1     Terminating         0             6m31s   10.244.0.18   emi      <none>           <none>
+21:56:59  emi-web-7c7d974498-fjrqh   0/1     Pending             0             0s      <none>        emi      <none>           <none>
+21:56:59  emi-web-7c7d974498-fjrqh   0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+21:57:00  emi-web-7c7d974498-fjrqh   0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+21:57:00  emi-web-7c7d974498-fjrqh   0/1     Running             0             0s      10.244.0.21   emi      <none>           <none>
+21:57:05  emi-web-7c7d974498-fjrqh   1/1     Running             0             6s      10.244.0.21   emi      <none>           <none>
+21:57:05  emi-web-7c7d974498-fjrqh   1/1     Running             0             6s      10.244.0.21   emi      <none>           <none>
+21:57:05  emi-web-59c5cc7fc-wb5mr    1/1     Terminating         1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:05  emi-web-59c5cc7fc-wb5mr    1/1     Terminating         1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:05  emi-web-7c7d974498-862kv   0/1     Pending             0             0s      <none>        <none>   <none>           <none>
+21:57:05  emi-web-7c7d974498-862kv   0/1     Pending             0             0s      <none>        emi      <none>           <none>
+21:57:05  emi-web-7c7d974498-862kv   0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+21:57:06  emi-web-7c7d974498-862kv   0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+21:57:06  emi-web-7c7d974498-862kv   0/1     Running             0             1s      10.244.0.22   emi      <none>           <none>
+21:57:09  emi-web-59c5cc7fc-rgq4f    0/1     Completed           0             6m41s   10.244.0.18   emi      <none>           <none>
+21:57:10  emi-web-59c5cc7fc-rgq4f    0/1     Completed           0             6m42s   10.244.0.18   emi      <none>           <none>
+21:57:10  emi-web-59c5cc7fc-rgq4f    0/1     Completed           0             6m42s   10.244.0.18   emi      <none>           <none>
+21:57:10  emi-web-59c5cc7fc-rgq4f    0/1     Completed           0             6m42s   10.244.0.18   emi      <none>           <none>
+21:57:11  emi-web-7c7d974498-862kv   1/1     Running             0             6s      10.244.0.22   emi      <none>           <none>
+21:57:11  emi-web-7c7d974498-862kv   1/1     Running             0             6s      10.244.0.22   emi      <none>           <none>
+21:57:11  emi-web-59c5cc7fc-khjmw    1/1     Terminating         1 (27m ago)   28m     10.244.0.12   emi      <none>           <none>
+21:57:11  emi-web-59c5cc7fc-khjmw    1/1     Terminating         1 (27m ago)   28m     10.244.0.12   emi      <none>           <none>
+21:57:15  emi-web-59c5cc7fc-wb5mr    0/1     Completed           1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:16  emi-web-59c5cc7fc-wb5mr    0/1     Completed           1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:16  emi-web-59c5cc7fc-wb5mr    0/1     Completed           1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:16  emi-web-59c5cc7fc-wb5mr    0/1     Completed           1 (27m ago)   28m     10.244.0.11   emi      <none>           <none>
+21:57:22  emi-web-59c5cc7fc-khjmw    0/1     Completed           1 (27m ago)   29m     10.244.0.12   emi      <none>           <none>
+21:57:22  emi-web-59c5cc7fc-khjmw    0/1     Completed           1 (27m ago)   29m     10.244.0.12   emi      <none>           <none>
+21:57:22  emi-web-59c5cc7fc-khjmw    0/1     Completed           1 (27m ago)   29m     10.244.0.12   emi      <none>           <none>
+22:00:50  emi-web-59c5cc7fc-4xkj8    0/1     Pending             0             0s      <none>        <none>   <none>           <none>
+22:00:50  emi-web-59c5cc7fc-4xkj8    0/1     Pending             0             0s      <none>        emi      <none>           <none>
+22:00:50  emi-web-59c5cc7fc-4xkj8    0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+22:00:51  emi-web-59c5cc7fc-4xkj8    0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+22:00:51  emi-web-59c5cc7fc-4xkj8    0/1     Running             0             0s      10.244.0.23   emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-4xkj8    0/1     Running             0             5s      10.244.0.23   emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-4xkj8    1/1     Running             0             5s      10.244.0.23   emi      <none>           <none>
+22:00:56  emi-web-7c7d974498-tkngh   1/1     Terminating         0             4m2s    10.244.0.20   emi      <none>           <none>
+22:00:56  emi-web-7c7d974498-tkngh   1/1     Terminating         0             4m2s    10.244.0.20   emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-lsw6g    0/1     Pending             0             0s      <none>        <none>   <none>           <none>
+22:00:56  emi-web-59c5cc7fc-lsw6g    0/1     Pending             0             0s      <none>        emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-lsw6g    0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-lsw6g    0/1     ContainerCreating   0             1s      <none>        emi      <none>           <none>
+22:00:56  emi-web-59c5cc7fc-lsw6g    0/1     Running             0             1s      10.244.0.24   emi      <none>           <none>
+22:01:02  emi-web-59c5cc7fc-lsw6g    1/1     Running             0             7s      10.244.0.24   emi      <none>           <none>
+22:01:02  emi-web-7c7d974498-862kv   1/1     Terminating         0             3m57s   10.244.0.22   emi      <none>           <none>
+22:01:02  emi-web-7c7d974498-862kv   1/1     Terminating         0             3m57s   10.244.0.22   emi      <none>           <none>
+22:01:02  emi-web-59c5cc7fc-w4b8l    0/1     Pending             0             0s      <none>        <none>   <none>           <none>
+22:01:02  emi-web-59c5cc7fc-w4b8l    0/1     Pending             0             0s      <none>        emi      <none>           <none>
+22:01:02  emi-web-59c5cc7fc-w4b8l    0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+22:01:03  emi-web-59c5cc7fc-w4b8l    0/1     ContainerCreating   0             0s      <none>        emi      <none>           <none>
+22:01:03  emi-web-59c5cc7fc-w4b8l    0/1     Running             0             0s      10.244.0.25   emi      <none>           <none>
+22:01:06  emi-web-7c7d974498-tkngh   0/1     Completed           0             4m13s   10.244.0.20   emi      <none>           <none>
+22:01:06  emi-web-7c7d974498-tkngh   0/1     Completed           0             4m13s   10.244.0.20   emi      <none>           <none>
+22:01:06  emi-web-7c7d974498-tkngh   0/1     Completed           0             4m13s   10.244.0.20   emi      <none>           <none>
+22:01:08  emi-web-59c5cc7fc-w4b8l    1/1     Running             0             6s      10.244.0.25   emi      <none>           <none>
+22:01:08  emi-web-59c5cc7fc-w4b8l    1/1     Running             0             6s      10.244.0.25   emi      <none>           <none>
+22:01:08  emi-web-7c7d974498-fjrqh   1/1     Terminating         0             4m9s    10.244.0.21   emi      <none>           <none>
+22:01:08  emi-web-7c7d974498-fjrqh   1/1     Terminating         0             4m9s    10.244.0.21   emi      <none>           <none>
+22:01:12  emi-web-7c7d974498-862kv   0/1     Completed           0             4m7s    10.244.0.22   emi      <none>           <none>
+22:01:13  emi-web-7c7d974498-862kv   0/1     Completed           0             4m8s    10.244.0.22   emi      <none>           <none>
+22:01:13  emi-web-7c7d974498-862kv   0/1     Completed           0             4m8s    10.244.0.22   emi      <none>           <none>
+22:01:18  emi-web-7c7d974498-fjrqh   0/1     Completed           0             4m19s   10.244.0.21   emi      <none>           <none>
+22:01:19  emi-web-7c7d974498-fjrqh   0/1     Completed           0             4m20s   10.244.0.21   emi      <none>           <none>
+22:01:19  emi-web-7c7d974498-fjrqh   0/1     Completed           0             4m20s   10.244.0.21   emi      <none>           <none>
