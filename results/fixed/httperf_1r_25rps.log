@@ -1,0 +1,31 @@
+=== PHASE rate=25 seconds=60 sessions=1500 start=1795182488
+httperf --hog --timeout=10 --client=0/1 --server=emi.local --port=80 --uri=/ --rate=25 --send-buffer=4096 --recv-buffer=16384 --add-header='Content-Type: application/x-www-form-urlencoded\n' --wsesslog=1500,0.000,/tmp/sessions.txt
+Maximum connect burst length: 15
+
+Total: connections 1500 requests 1500 replies 1500 test-duration 59.970 s
+
+Connection rate: 25.0 conn/s (40.0 ms/conn, <=16 concurrent connections)
+Connection time [ms]: min -602.0 avg 19.4 max 634.0 median 8.5 stddev 63.5
+Connection time [ms]: connect 0.3
+Connection length [replies/conn]: 1.000
+
+Request rate: 25.0 req/s (40.0 ms/req)
+Request size [B]: 176.0
+
+Reply rate [replies/s]: min 22.1 avg 25.0 max 28.0 stddev 1.7 (11 samples)
+Reply time [ms]: response 19.1 transfer 0.0
+Reply size [B]: header 190.0 content 255.0 footer 0.0 (total 445.0)
+Reply status: 1xx=0 2xx=1500 3xx=0 4xx=0 5xx=0
+
+CPU time [s]: user 42.64 system 17.26 (user 71.1% system 28.8% total 99.9%)
+Net I/O: 15.2 KB/s (0.1*10^6 bps)
+
+Errors: total 0 client-timo 0 socket-timo 0 connrefused 0 connreset 0
+Errors: fd-unavail 0 addrunavail 0 ftab-full 0 other 0
+
+Session rate [sess/s]: min 22.09 avg 25.01 max 28.00 stddev 1.72 (1500/1500)
+Session: avg 1.00 connections/session
+Session lifetime [s]: 0.0
+Session failtime [s]: 0.0
+Session length histogram: 0 1500
+=== END rate=25 end=1795182548

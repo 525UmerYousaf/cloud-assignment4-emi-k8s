@@ -1,0 +1,6 @@
+NAME                      READY   STATUS      RESTARTS        AGE   IP            NODE   NOMINATED NODE   READINESS GATES
+emi-web-59c5cc7fc-qzttr   1/1     Running     0               13m   10.244.0.34   emi    <none>           <none>
+mongo-0                   1/1     Running     1 (4h54m ago)   24h   10.244.0.9    emi    <none>           <none>
+mongo-1                   1/1     Running     1 (4h54m ago)   24h   10.244.0.10   emi    <none>           <none>
+mongo-2                   1/1     Running     1 (4h54m ago)   24h   10.244.0.8    emi    <none>           <none>
+mongo-init-plwz7          0/1     Completed   0               24h   <none>        emi    <none>           <none>
